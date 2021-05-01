@@ -9,8 +9,7 @@ export const VideoPlayer = () => {
     return (
         <div>
             {/* My video */}
-            {
-                stream && (
+            {stream && (
                 <div className='myVideo_container'>
                 <div className='myVideo_block'>
                         <h4>{name || 'Name'}</h4>

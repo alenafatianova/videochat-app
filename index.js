@@ -24,7 +24,7 @@ socketIO.on('connection', (socket) => {
         socket.broadcast.emit("callended")
     });
 
-    socket.io("calluser", ({userToCall, signalData, from, name }) => {
+    socket.on("calluser", ({userToCall, signalData, from, name }) => {
         socketIO.to(userToCall).emit("calluser", {signal: signalData, from, name});
     });
 
