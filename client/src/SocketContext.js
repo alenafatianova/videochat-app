@@ -25,7 +25,7 @@ export const ContextProvider = ({children}) => {
         navigator.mediaDevices.getUserMedia({video: true, audio: true})
         .then((currentStream) => {
             setStream(currentStream)
-            myVideo.current.setObject = currentStream;
+            myVideo.current.srcObject = currentStream;
         })
 
         socket.on('me', (id) => setMe(id))
@@ -39,9 +39,9 @@ export const ContextProvider = ({children}) => {
         
         setIsCallAccepted(true)
         
-        const peer = new Peer({initiator: false, trickle: false, sream})
+        const peer = new Peer({initiator: false, trickle: false, stream})
         
-        peer.on('signal', () => {
+        peer.on('signal', (data) => {
             socket.emit('answercall', {signal: data, to: call.from})
         })
         
@@ -56,9 +56,9 @@ export const ContextProvider = ({children}) => {
 
 
     const callToUser = (id) => {
-        const peer = new Peer({initiator: true, trickle: false, sream})
+        const peer = new Peer({initiator: true, trickle: false, stream})
 
-        peer.on('signal', () => {
+        peer.on('signal', (data) => {
             socket.emit('calluser', {userToCall: id, signalData: data, from: me, name})
         });
         
