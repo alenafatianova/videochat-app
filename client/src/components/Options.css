@@ -1,0 +1,16 @@
+.main_btn {
+    width: 100px;
+    height: 30px;
+    margin: 20px;
+}
+.input_form {
+    width: 25%;
+    min-height: 30px;
+    margin: 20px;
+}
+.form_class {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
