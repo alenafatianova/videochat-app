@@ -11,8 +11,9 @@ export const App = () => {
         <h2>Video Chat</h2>
       </nav>
         <VideoPlayer/>
-        <Options/>
-        <Notifications/>
+        <Options>
+          <Notifications/>
+        </Options>
     </div>
   );
 }
