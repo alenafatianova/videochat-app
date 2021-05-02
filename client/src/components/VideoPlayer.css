@@ -1,0 +1,4 @@
+.video_block_main {
+    display: flex;
+    justify-content: space-between;
+}

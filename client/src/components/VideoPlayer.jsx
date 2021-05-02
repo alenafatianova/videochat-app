@@ -1,13 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {SocketContext} from '../SocketContext'
-import {useContext} from 'react'
+
 
 export const VideoPlayer = () => {
 
     const {name, isCallAccepted, isCallEnded, stream, myVideo, userVideo, call} = useContext(SocketContext)
 
     return (
-        <div>
+        <div className='video_block_main'>
             {/* My video */}
             {stream && (
                 <div className='myVideo_container'>
@@ -19,12 +19,11 @@ export const VideoPlayer = () => {
             )}
             
             {/* user's video */}
-            {
-                isCallAccepted && !isCallEnded && (
+            {isCallAccepted && !isCallEnded && (
                     <div className='userVideo_container'>
                     <div className='userVideo_block'>
                         <h4>{call.name || 'Name'}</h4>
-                        <video className='video' playsInline muted ref={userVideo} autoPlay />
+                        <video className='video' playsInline  ref={userVideo} autoPlay />
                     </div>
                 </div>
             )}
