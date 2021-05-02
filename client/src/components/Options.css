@@ -1,26 +1,36 @@
+
 .main_btn {
-    width: 25%;
+    width: 300px;
     min-height: 50px;
+    background: rgb(169, 169, 255);
     margin: 20px;
     border: none;
 }
 .input_form {
-    width: 25%;
+    width: 300px;
     min-height: 30px;
     margin: 20px;
 }
 .form_class {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 .end_call_btn {
-    background: pink ;
+    background: pink;
+    width: 300px;
+    height: 50px;
+    border: none;
+    margin: 20px;
 }
 .call_to_user {
     background: rgb(169, 169, 255);
-    width: 25%;
+    width: 300px;
     min-height: 50px;
     margin: 20px;
     border: none;
+}
+.acc_info_block, .call_to_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

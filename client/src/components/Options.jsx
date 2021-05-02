@@ -11,20 +11,18 @@ export const Options = ({children}) => {
     return (
         <div className='container'>
                 <form noValidate autoComplete='off' className='form_class'>
-                    <div className="gridContainer">
-                        <div className="padding">
-                            <h5>Account Info</h5>
+                        <div className="acc_info_block">
+                            <h5>Enter ID to call</h5>
                             <input label='Name' className='input_form' value={name} onChange={(e) => setName(e.target.value)} />
-                            <CopyToClipboard text={me} className="clipboard">
+                            <CopyToClipboard text={me} >
                             <button className='main_btn' type="button">
                                 Copy Your ID
                             </button>
                             </CopyToClipboard>
                         </div>
-                    </div>
-
-                    <div className="padding">
-                        <h5>Call to someone</h5>
+                   
+                    <div className="call_to_block">
+                        <h5>Call to</h5>
                         <input className='input_form' value={idToCall} onChange={(e) => setIdToCall(e.target.value)} />
                         {isCallAccepted && !isCallEnded ? (
                             <button type="button" className='end_call_btn' onClick={leaveCall}>
