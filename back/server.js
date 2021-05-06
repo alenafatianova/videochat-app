@@ -13,12 +13,8 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-    res.redirect(`/${roomID}`)
-})
 
-app.get('/:room',  (req, res) => {
-    res.render('room', {roomID: req.params.room })
+app.get('/',  (req, res) => {
     res.send('Server is running')
 })
 

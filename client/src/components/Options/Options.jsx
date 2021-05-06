@@ -7,6 +7,7 @@ export const Options = ({children}) => {
 
     const {me, isCallAccepted, isCallEnded, name, setName, leaveCall, callToUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('')
+    const [isDisabled, setIsDisabled] = useState(false)
 
     return (
         <div className='container'>
@@ -15,7 +16,7 @@ export const Options = ({children}) => {
                             <h5>Enter name to call</h5>
                             <input label='Name' className='input_form' value={name} onChange={(e) => setName(e.target.value)} />
                             <CopyToClipboard text={me} >
-                            <button className='main_btn' type="button">
+                            <button className='main_btn' type="button" onClick={() => setIsDisabled(true)} disabled={isDisabled}>
                                 Copy
                             </button>
                             </CopyToClipboard>

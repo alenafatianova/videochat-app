@@ -17,6 +17,7 @@ const ContextProvider = ({children}) => {
     const myVideo = useRef();
     const userVideo = useRef();
     const connectionRef = useRef();
+    
 
 
     useEffect(() => {
@@ -82,6 +83,10 @@ const ContextProvider = ({children}) => {
 
         window.location.reload();
     }
+
+    // const message = () => {
+    //     socket.emit('message', text.value())
+    // }
     return (
         <SocketContext.Provider value={{
             call, isCallAccepted, isCallEnded,
