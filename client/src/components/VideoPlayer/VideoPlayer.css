@@ -1,7 +1,6 @@
 .video_block_main {
     display: flex;
-    justify-content: space-around;
-    align-items: center;  
+   justify-content: space-around;
 }
 .video {
     width: 400px;

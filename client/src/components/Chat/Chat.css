@@ -1,0 +1,11 @@
+.chat_main_container {
+    width: 200px;
+    border: 1px solid red;
+    margin: 0px;
+    padding: 0px;
+    position: sticky;  
+}
+.chat_block {
+    display: flex;
+    flex-direction: column;
+}

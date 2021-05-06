@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {SocketContext} from '../../SocketContext'
-import { Chat } from './Chat'
+import { Chat } from '../Chat/Chat'
 import './VideoPlayer.css'
 
 
@@ -9,6 +9,7 @@ export const VideoPlayer = () => {
     const {name, isCallAccepted, isCallEnded, stream, myVideo, userVideo, call} = useContext(SocketContext)
     
     return (
+        <>
         <div className='video_block_main'>
             {/* My video */}
             {stream && (
@@ -29,7 +30,9 @@ export const VideoPlayer = () => {
                     </div>
                 </div>
             )}
-            <Chat/>
+           <Chat/>
         </div>
+       
+        </>
     )
 }
