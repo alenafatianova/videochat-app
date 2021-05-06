@@ -12,11 +12,11 @@ export const Options = ({children}) => {
         <div className='container'>
                 <form noValidate autoComplete='off' className='form_class'>
                         <div className="acc_info_block">
-                            <h5>Enter ID to call</h5>
+                            <h5>Enter name to call</h5>
                             <input label='Name' className='input_form' value={name} onChange={(e) => setName(e.target.value)} />
                             <CopyToClipboard text={me} >
                             <button className='main_btn' type="button">
-                                Copy Your ID
+                                Copy
                             </button>
                             </CopyToClipboard>
                         </div>

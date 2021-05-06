@@ -1,7 +1,7 @@
 import './App.css';
-import {VideoPlayer} from './components/VideoPlayer'
-import {Options} from './components/Options'
-import {Notifications} from './components/Notifications'
+import {VideoPlayer} from './components/VideoPlayer/VideoPlayer'
+import {Options} from './components/Options/Options'
+import {Notifications} from './components/Notifications/Notifications'
 
 
 export const App = () => {

@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {SocketContext} from '../../SocketContext'
+import './VideoPlayer.css'
 
 
 export const VideoPlayer = () => {

@@ -1,4 +1,10 @@
 .video_block_main {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;  
+}
+.video {
+    width: 400px;
+    height: 400px;
+    padding-right: 20px;
 }
