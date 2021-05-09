@@ -13,15 +13,12 @@ const ContextProvider = ({children}) => {
     const [isCallAccepted, setIsCallAccepted] = useState(false);
     const [isCallEnded, setIsCallEnded] = useState(false);
     const [name, setName] = useState('');
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([])
+   
 
     const myVideo = useRef();
     const userVideo = useRef();
     const connectionRef = useRef();
     
-
-
     useEffect(() => {
         
         navigator.mediaDevices.getUserMedia({video: true, audio: true})
@@ -39,6 +36,7 @@ const ContextProvider = ({children}) => {
 
     }, [])
 
+   
     const answerCall = () => {
         
         setIsCallAccepted(true)
@@ -87,13 +85,12 @@ const ContextProvider = ({children}) => {
 
         window.location.reload();
     }
-
   
     return (
         <SocketContext.Provider value={{
-            call, isCallAccepted, isCallEnded, name, me,
-            leaveCall, callToUser, answerCall, setMessage, setMessages, setName,
-            myVideo, userVideo, stream, message, messages}}>
+            call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream,
+            leaveCall, callToUser, answerCall, setName, 
+            }}>
                 {children}
         </SocketContext.Provider>
     )

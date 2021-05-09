@@ -9,3 +9,8 @@
     display: flex;
     flex-direction: column;
 }
+.chat_messages_list {
+    height: 50vh; 
+    display: flex;
+    flex-direction: row;
+}
