@@ -11,6 +11,13 @@
 }
 .chat_messages_list {
     height: 50vh; 
+}
+.friend_message {
+    border: 1px solid blue;
+    font-size: 14px;
+}
+.my_own_message {
+    background-color: rgb(152, 209, 255);
     display: flex;
-    flex-direction: row;
+    
 }

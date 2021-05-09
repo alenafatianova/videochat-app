@@ -13,11 +13,13 @@ const ContextProvider = ({children}) => {
     const [isCallAccepted, setIsCallAccepted] = useState(false);
     const [isCallEnded, setIsCallEnded] = useState(false);
     const [name, setName] = useState('');
-   
+    const [message, setMessage] = useState("");
+    const [messages, setMessages] = useState([]);
 
     const myVideo = useRef();
     const userVideo = useRef();
     const connectionRef = useRef();
+    
     
     useEffect(() => {
         
@@ -34,11 +36,27 @@ const ContextProvider = ({children}) => {
             setCall({isReceivingCall: true, from, name: callerName, signal})
         })
 
+        socket.on("id", (id) => {
+            setMe(id);
+      })
+        socket.on("message", (message) => {
+            getMessages(message);
+      })
+
     }, [])
 
-   
+    const getMessages = (message) => {
+        setMessages((messages) => [...messages, message]);
+    }
+    
+    const sendMessage = (e) => {
+        e.preventDefault();
+        const messageData = { body: message, id: me };
+        setMessage("");
+        socket.emit("sendChatMessage", messageData);
+    }
+
     const answerCall = () => {
-        
         setIsCallAccepted(true)
         
         const peer = new Peer({initiator: false, trickle: false, stream});
@@ -78,22 +96,19 @@ const ContextProvider = ({children}) => {
     };
 
     const leaveCall = () => {
-        
         setIsCallEnded(true);
-        
         connectionRef.current.destroy();
-
         window.location.reload();
     }
   
     return (
         <SocketContext.Provider value={{
-            call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream,
-            leaveCall, callToUser, answerCall, setName, 
+            call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream, message, messages,
+            leaveCall, callToUser, answerCall, setName, setMessage, setMessages, sendMessage,
             }}>
                 {children}
         </SocketContext.Provider>
     )
 }
 
-export { ContextProvider, SocketContext };
+export { ContextProvider, SocketContext, socket };

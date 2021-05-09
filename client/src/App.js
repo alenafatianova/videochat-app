@@ -2,15 +2,18 @@ import './App.css';
 import {VideoPlayer} from './components/VideoPlayer/VideoPlayer'
 import {Options} from './components/Options/Options'
 import {Notifications} from './components/Notifications/Notifications'
-
+import {Chat} from './components/Chat/Chat'
 
 export const App = () => {
   return (
-    <div className="App">
-      <nav>
+    <div>
+      <div className='app_h2'>
         <h2>Video Chat</h2>
-      </nav>
-        <VideoPlayer/>
+      </div>
+        <div className='chat_video_block'>
+          <Chat/>
+          <VideoPlayer/>
+        </div>
         <Options>
           <Notifications/>
         </Options>

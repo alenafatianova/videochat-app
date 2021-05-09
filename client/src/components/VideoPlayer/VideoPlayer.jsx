@@ -1,8 +1,6 @@
 import React, {useContext} from 'react'
 import {SocketContext} from '../../SocketContext'
-import { Chat } from '../Chat/Chat'
 import './VideoPlayer.css'
-
 
 export const VideoPlayer = () => {
 
@@ -30,7 +28,6 @@ export const VideoPlayer = () => {
                     </div>
                 </div>
             )}
-           <Chat/>
         </div>
        
         </>
