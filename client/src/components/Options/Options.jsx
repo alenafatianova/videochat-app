@@ -2,13 +2,13 @@ import React, {useContext, useState} from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import {SocketContext} from '../../SocketContext'
 import './Options.css'
+import {Notifications} from '../Notifications/Notifications'
 
-export const Options = ({children}) => {
+export const Options = () => {
 
-    const {me, isCallAccepted, isCallEnded, name, setName, leaveCall, callToUser} = useContext(SocketContext);
+    const {me, isCallAccepted, isCallEnded, name, setName, leaveCall, callToUser, isModalActive, setIsModalActive} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('')
-    const [isDisabled, setIsDisabled] = useState(false)
-
+   
     return (
         <div className='container'>
                 <form noValidate autoComplete='off' className='form_class'>
@@ -23,10 +23,7 @@ export const Options = ({children}) => {
                             <CopyToClipboard text={me} >
                             <button 
                                 className='main_btn' 
-                                type="button" 
-                                onClick={() => setIsDisabled(true)} 
-                                disabled={isDisabled}
-                            > Copy </button>
+                                type="button"> Copy </button>
                             </CopyToClipboard>
                         </div>
                    
@@ -43,13 +40,23 @@ export const Options = ({children}) => {
                                 Hang Up
                             </button>
                         ) : (
-                            <button type="button" className='call_to_user' onClick={() => callToUser(idToCall)}>
+                            
+                            <button 
+                                type="button" 
+                                className='call_to_user' 
+                               
+                                onClick={() => callToUser(idToCall)}>
                                 Call
                             </button>
                         )}
+                       
                     </div>  
                 </form>
-                {children}
+               
+                <Notifications  isModalActive={isModalActive} setIsModalActive={setIsModalActive} />
+                
+               
+               
         </div>
     )
 }

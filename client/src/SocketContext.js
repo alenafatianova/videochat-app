@@ -15,6 +15,7 @@ const ContextProvider = ({children}) => {
     const [name, setName] = useState('');
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
+    const [isModalActive, setIsModalActive] = useState(false)
 
     const myVideo = useRef();
     const userVideo = useRef();
@@ -57,8 +58,10 @@ const ContextProvider = ({children}) => {
     }
 
     const answerCall = () => {
+        setIsModalActive(false)
+
         setIsCallAccepted(true)
-        
+
         const peer = new Peer({initiator: false, trickle: false, stream});
         
         peer.on('signal', (data) => {
@@ -72,10 +75,14 @@ const ContextProvider = ({children}) => {
         peer.signal(call.signal);
 
         connectionRef.current = peer;
+
+      
     };
 
 
     const callToUser = (id) => {
+        setIsModalActive(true)
+        
         const peer = new Peer({initiator: true, trickle: false, stream})
 
         peer.on('signal', (data) => {
@@ -88,6 +95,7 @@ const ContextProvider = ({children}) => {
 
         socket.on('isCallAccepted', (signal) => {
             setIsCallAccepted(true)
+           
 
             peer.signal(signal)
         });
@@ -103,8 +111,8 @@ const ContextProvider = ({children}) => {
   
     return (
         <SocketContext.Provider value={{
-            call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream, message, messages,
-            leaveCall, callToUser, answerCall, setName, setMessage, setMessages, sendMessage,
+            call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream, message, messages, isModalActive,
+            leaveCall, callToUser, answerCall, setName, setMessage, setMessages, sendMessage, setIsModalActive
             }}>
                 {children}
         </SocketContext.Provider>

@@ -2,19 +2,21 @@ import React, {useContext} from 'react'
 import {SocketContext} from '../../SocketContext'
 import './Notifications.css'
 
-export const Notifications = () => {
+export const Notifications = ({isModalActive, setIsModalActive }) => {
     const {answerCall, isCallAccepted, call} = useContext(SocketContext)
-
+    
     return (
-        <>
-        {call.isReceivingCall && !isCallAccepted && (
-            <div className="answer_call_block">
+        <div className={isModalActive ? 'modal active' : 'modal'}  >
+        {call.isReceivingCall && !isCallAccepted &&  (
+            <div className= {isModalActive ? 'modal_content active' : 'modal_content'} >
                 <h1>{call.name} is calling: </h1>
-                <button onClick={answerCall} type="button" className="answer_call_btn">
-                    Answer
-                </button>
+                <button 
+                    onChange={() => setIsModalActive(false)}
+                    onClick={answerCall} 
+                    type="button" 
+                    className="answer_call_btn" > Answer </button>
             </div>
         )}
-        </>
+        </div>
     )
 }
