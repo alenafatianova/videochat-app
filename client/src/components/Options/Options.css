@@ -1,6 +1,4 @@
-.container {
-    width: 100%;
-}
+
 .main_btn {
     width: 300px;
     min-height: 50px;
@@ -16,7 +14,8 @@
 }
 .form_class {
     display: flex;
-    margin-left: 120px;
+    justify-content: center;
+    /* margin-left: 120px; */
 }
 .end_call_btn {
     background: pink;
