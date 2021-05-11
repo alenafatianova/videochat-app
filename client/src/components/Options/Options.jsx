@@ -13,18 +13,31 @@ export const Options = ({children}) => {
         <div className='container'>
                 <form noValidate autoComplete='off' className='form_class'>
                         <div className="acc_info_block">
-                            <h5>Enter name to call</h5>
-                            <input label='Name' className='input_form' value={name} onChange={(e) => setName(e.target.value)} />
+                            <h5>Name or ID to call</h5>
+                            <input 
+                                placeholder='Type name or ID here' 
+                                className='input_form' 
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)} 
+                            />
                             <CopyToClipboard text={me} >
-                            <button className='main_btn' type="button" onClick={() => setIsDisabled(true)} disabled={isDisabled}>
-                                Copy
-                            </button>
+                            <button 
+                                className='main_btn' 
+                                type="button" 
+                                onClick={() => setIsDisabled(true)} 
+                                disabled={isDisabled}
+                            > Copy </button>
                             </CopyToClipboard>
                         </div>
                    
                     <div className="call_to_block">
-                        <h5>Call to</h5>
-                        <input className='input_form' value={idToCall} onChange={(e) => setIdToCall(e.target.value)} />
+                        <h5>Call to: {name}</h5>
+                        <input 
+                            placeholder='Paste name or ID here'
+                            className='input_form' 
+                            value={idToCall} 
+                            onChange={(e) => setIdToCall(e.target.value)} 
+                        />
                         {isCallAccepted && !isCallEnded ? (
                             <button type="button" className='end_call_btn' onClick={leaveCall}>
                                 Hang Up
