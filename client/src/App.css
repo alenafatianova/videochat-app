@@ -1,5 +1,6 @@
 .chat_video_block {
   display: flex;
+  /* justify-content: space-evenly; */
   
 }
 
