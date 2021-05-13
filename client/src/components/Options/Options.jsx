@@ -3,6 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import {SocketContext} from '../../SocketContext'
 import './Options.css'
 import {Notifications} from '../Notifications/Notifications'
+import { InputComponent } from '../Chat/Input/InputComponent'
 
 export const Options = () => {
 
@@ -26,9 +27,9 @@ export const Options = () => {
                                 type="button"> Copy </button>
                             </CopyToClipboard>
                         </div>
-                   
                     <div className="call_to_block">
-                        <h5>Call to: {name}</h5>
+                        <h5> Call </h5>
+                       
                         <input 
                             placeholder='Paste name or ID here'
                             className='input_form' 
@@ -44,7 +45,6 @@ export const Options = () => {
                             <button 
                                 type="button" 
                                 className='call_to_user' 
-                               
                                 onClick={() => callToUser(idToCall)}>
                                 Call
                             </button>
@@ -52,11 +52,7 @@ export const Options = () => {
                        
                     </div>  
                 </form>
-               
-                <Notifications  isModalActive={isModalActive} setIsModalActive={setIsModalActive} />
-                
-               
-               
+                <Notifications  isModalActive={isModalActive} setIsModalActive={setIsModalActive} />    
         </div>
     )
 }

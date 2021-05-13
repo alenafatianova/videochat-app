@@ -8,10 +8,7 @@ h3 {
     text-align: center;
 }
 
-.chat_block {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .chat_list_messages {
     height: 50vh;
@@ -37,6 +34,11 @@ h3 {
     margin-left: 3%;
     font-size: 14px;
     border-radius: 8px;
+}
+
+.chat_block {
+    display: flex;
+    flex-direction: column;
 }
 
 .messages_input {

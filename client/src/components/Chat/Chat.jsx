@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import "./Chat.css";
 import { SocketContext } from "../../SocketContext";
+import {InputComponent} from '../Chat/Input/InputComponent'
 
-export const Chat = () => {
-  const { me, message, messages, setMessage, sendMessage } = useContext(SocketContext);
 
-  const handleChange = (e) => {
-    setMessage(e.currentTarget.value);
-  }
+
+export const Chat = (props) => {
+  const { me, messages, sendMessage, setMessage, message } = useContext(SocketContext);
+
+    const handleChange = (e) => {
+        setMessage(e.currentTarget.value);
+    }
 
   return (
     <div className="chat_main_container">
@@ -25,14 +28,7 @@ export const Chat = () => {
       })}
       </div>
       <form onSubmit={sendMessage}>
-        <div className="chat_block">
-          <input
-            className='messages_input'
-            value={message}
-            onChange={handleChange}
-            placeholder="Type your message"
-          />
-        </div>
+        <InputComponent placeholder="Type your message" className='messages_input' value={message}  onChange={handleChange} />
         <button type="submit" className="btn_message_send">Send message</button>
       </form>
     </div>
