@@ -11,7 +11,7 @@ export const Chat = () => {
     const handleChange = (e) => {
       setMessage(e.currentTarget.value);
     }
- 
+
   return (
     <div className="chat_main_container">
       <div className='chat_list_messages'>
@@ -29,7 +29,7 @@ export const Chat = () => {
       </div>
       <form onSubmit={sendMessage}>
         <InputComponent placeholder="Type your message" className='messages_input' value={message}  onChange={handleChange} />
-        <ButtonComponent type="submit" className="btn_message_send"> Send message </ButtonComponent>
+        <ButtonComponent type="submit" className="btn_message_send"> {'Send message'} </ButtonComponent>
       </form>
     </div>
   );
