@@ -16,7 +16,7 @@ export const Options = () => {
                 <form noValidate autoComplete='off' className='form_class'>
                         <div className="acc_info_block">
                             <h5>Name or ID to call</h5>
-                            <InputComponent placeholder='Type name or ID here' className='input_form'  onChange={(e) => setName(e.target.value)} value={name}/>
+                            <InputComponent placeholder='Type name or ID here' className='input_form' onChange={(e) => setName(e.target.value)} value={name}/>
                             <CopyToClipboard text={me} >
                                 <ButtonComponent className='main_btn' type="button">Copy</ButtonComponent>
                             </CopyToClipboard>

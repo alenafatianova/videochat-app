@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {SocketContext} from '../../SocketContext'
+import { ButtonComponent } from '../Button/ButtonComponent'
 import './Notifications.css'
 
 export const Notifications = ({isModalActive, setIsModalActive }) => {
@@ -10,11 +11,11 @@ export const Notifications = ({isModalActive, setIsModalActive }) => {
         {call.isReceivingCall && !isCallAccepted &&  (
             <div className= {isModalActive ? 'modal_content active' : 'modal_content'} >
                 <h1>{call.name} is calling: </h1>
-                <button 
-                    onChange={() => setIsModalActive(false)}
+                <ButtonComponent 
                     onClick={answerCall} 
                     type="button" 
-                    className="answer_call_btn" > Answer </button>
+                    className="answer_call_btn" 
+                    onChange={() => setIsModalActive(false)}>Answer</ButtonComponent>
             </div>
         )}
         </div>
