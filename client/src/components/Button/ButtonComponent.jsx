@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const ButtonComponent = ({type, className, children}) => {
+export const ButtonComponent = ({type, className, onClick, children}) => {
 
     console.log(type)
     return (
         <>
-            <button type={type} className={className}> {children} </button>
+            <button type={type} className={className} onClick={onClick}> {children} </button>
         </>
     )
 }

@@ -4,6 +4,7 @@ import {SocketContext} from '../../SocketContext'
 import './Options.css'
 import {Notifications} from '../Notifications/Notifications'
 import { InputComponent } from '../Input/InputComponent'
+import { ButtonComponent } from '../Button/ButtonComponent'
 
 export const Options = () => {
 
@@ -35,18 +36,13 @@ export const Options = () => {
                                 Hang Up
                             </button>
                         ) : (
-                            
-                            <button 
-                                type="button" 
-                                className='call_to_user' 
-                                onClick={() => callToUser(idToCall)}>
+                            <ButtonComponent type="button" className='call_to_user' onClick={() => callToUser(idToCall)}>
                                 Call
-                            </button>
+                            </ButtonComponent>
                         )}
-                       
                     </div>  
                 </form>
-                <Notifications  isModalActive={isModalActive} setIsModalActive={setIsModalActive} />    
+                <Notifications isModalActive={isModalActive} setIsModalActive={setIsModalActive} />    
         </div>
     )
 }
