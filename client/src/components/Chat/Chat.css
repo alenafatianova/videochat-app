@@ -8,8 +8,6 @@ h3 {
     text-align: center;
 }
 
-
-
 .chat_list_messages {
     height: 50vh;
 }
@@ -43,6 +41,7 @@ h3 {
 
 .messages_input {
     height: 5vh;
+    width: 97%;
 }
 
 .btn_message_send {

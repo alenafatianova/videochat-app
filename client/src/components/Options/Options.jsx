@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import {SocketContext} from '../../SocketContext'
 import './Options.css'
 import {Notifications} from '../Notifications/Notifications'
-import { InputComponent } from '../Chat/Input/InputComponent'
+import { InputComponent } from '../Input/InputComponent'
 
 export const Options = () => {
 
@@ -29,13 +29,7 @@ export const Options = () => {
                         </div>
                     <div className="call_to_block">
                         <h5> Call </h5>
-                       
-                        <input 
-                            placeholder='Paste name or ID here'
-                            className='input_form' 
-                            value={idToCall} 
-                            onChange={(e) => setIdToCall(e.target.value)} 
-                        />
+                       <InputComponent placeholder='Paste name or ID here' className='input_form' value={idToCall} onChange={(e) => setIdToCall(e.target.value)} />
                         {isCallAccepted && !isCallEnded ? (
                             <button type="button" className='end_call_btn' onClick={leaveCall}>
                                 Hang Up
