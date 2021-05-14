@@ -16,29 +16,18 @@ export const Options = () => {
                 <form noValidate autoComplete='off' className='form_class'>
                         <div className="acc_info_block">
                             <h5>Name or ID to call</h5>
-                            <input 
-                                placeholder='Type name or ID here' 
-                                className='input_form' 
-                                value={name} 
-                                onChange={(e) => setName(e.target.value)} 
-                            />
+                            <InputComponent placeholder='Type name or ID here' className='input_form'  onChange={(e) => setName(e.target.value)} value={name}/>
                             <CopyToClipboard text={me} >
-                            <button 
-                                className='main_btn' 
-                                type="button"> Copy </button>
+                                <ButtonComponent className='main_btn' type="button">Copy</ButtonComponent>
                             </CopyToClipboard>
                         </div>
                     <div className="call_to_block">
                         <h5> Call </h5>
                        <InputComponent placeholder='Paste name or ID here' className='input_form' value={idToCall} onChange={(e) => setIdToCall(e.target.value)} />
                         {isCallAccepted && !isCallEnded ? (
-                            <button type="button" className='end_call_btn' onClick={leaveCall}>
-                                Hang Up
-                            </button>
+                            <ButtonComponent type="button" className='end_call_btn' onClick={leaveCall}>  Hang Up </ButtonComponent>
                         ) : (
-                            <ButtonComponent type="button" className='call_to_user' onClick={() => callToUser(idToCall)}>
-                                Call
-                            </ButtonComponent>
+                            <ButtonComponent type="button" className='call_to_user' onClick={() => callToUser(idToCall)}>Call</ButtonComponent>
                         )}
                     </div>  
                 </form>
