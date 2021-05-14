@@ -4,6 +4,7 @@ import {Options} from './components/Options/Options'
 import {Chat} from './components/Chat/Chat'
 
 export const App = () => {
+  const user = prompt('Enter your name') 
   return (
     <div>
       <div className='app_h2'>

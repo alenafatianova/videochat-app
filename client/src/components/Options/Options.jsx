@@ -16,7 +16,11 @@ export const Options = () => {
                 <form noValidate autoComplete='off' className='form_class'>
                         <div className="acc_info_block">
                             <h5>Name or ID to call</h5>
-                            <InputComponent placeholder='Type name or ID here' className='input_form' onChange={(e) => setName(e.target.value)} value={name}/>
+                            <InputComponent 
+                                placeholder='Type name or ID here' 
+                                className='input_form' 
+                                onChange={(e) => setName(e.target.value)} 
+                                value={name}/>
                             <CopyToClipboard text={me} >
                                 <ButtonComponent className='main_btn' type="button">Copy</ButtonComponent>
                             </CopyToClipboard>
@@ -25,7 +29,7 @@ export const Options = () => {
                         <h5> Call </h5>
                        <InputComponent placeholder='Paste name or ID here' className='input_form' value={idToCall} onChange={(e) => setIdToCall(e.target.value)} />
                         {isCallAccepted && !isCallEnded ? (
-                            <ButtonComponent type="button" className='end_call_btn' onClick={leaveCall}>  Hang Up </ButtonComponent>
+                            <ButtonComponent type="button" className='end_call_btn' onClick={leaveCall}>Hang Up</ButtonComponent>
                         ) : (
                             <ButtonComponent type="button" className='call_to_user' onClick={() => callToUser(idToCall)}>Call</ButtonComponent>
                         )}

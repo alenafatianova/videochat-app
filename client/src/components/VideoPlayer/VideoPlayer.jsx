@@ -18,7 +18,7 @@ export const VideoPlayer = () => {
                     </div>
                 </div>
             )}
-            
+        
             {/* user's video */}
             {isCallAccepted && !isCallEnded && (
                     <div className='userVideo_container'>
@@ -29,7 +29,6 @@ export const VideoPlayer = () => {
                 </div>
             )}
         </div>
-       
         </>
     )
 }
