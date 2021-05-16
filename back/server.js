@@ -13,10 +13,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-const roomData = new Map()
-
 app.get('/',  (req, res) => {
-    res.json(room)
     res.send('Server is running')
 })
 
