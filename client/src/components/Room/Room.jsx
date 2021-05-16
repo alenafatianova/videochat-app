@@ -4,7 +4,7 @@ import { Options } from '../Options/Options'
 import { Chat } from '../Chat/Chat'
 import './Room.css'
 
-export const Room = () => {
+export const Room = ({user}) => {
 
     const {name, isCallAccepted, isCallEnded, stream, myVideo, userVideo, call} = useContext(SocketContext)
     
@@ -15,7 +15,7 @@ export const Room = () => {
             {stream && (
                 <div className='myVideo_container'>
                 <div className='myVideo_block'>
-                        <h4>{name || 'Name'}</h4>
+                        <h4>{user || 'Name'}</h4>
                         <video className='video' playsInline muted ref={myVideo} autoPlay />
                     </div>
                 </div>

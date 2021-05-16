@@ -44,10 +44,6 @@ const ContextProvider = ({children}) => {
             getMessages(message);
         })
 
-        socket.on('userJoinedChat', (userName) => {
-            console.log('user connected' + userName)
-        })
-
     }, [])
 
 

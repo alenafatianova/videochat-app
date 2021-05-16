@@ -52,3 +52,10 @@ h3 {
     color: white;
     text-transform: uppercase;
 }
+
+.user_join {
+    padding-left: 3%;
+    font-size: 14px;
+    color: rgb(112, 112, 112);
+    background-color: rgb(255, 233, 208);
+}

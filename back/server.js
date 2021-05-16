@@ -22,6 +22,7 @@ io.on('connection', (socket) => {
     socket.emit('me', socket.id);
 
     socket.on('disconnect', () => {
+        console.log('user left')
         socket.broadcast.emit("callEnded")
     });
 
@@ -35,10 +36,6 @@ io.on('connection', (socket) => {
     
     socket.on('sendChatMessage', (data) => {
         io.emit('message', data)
-    })
-    
-    socket.on('userJoined', (userName) => {
-      io.emit('joinedName', userName)
     })
 })
 

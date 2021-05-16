@@ -4,19 +4,22 @@ import { SocketContext } from "../../SocketContext";
 import {InputComponent} from '../Input/InputComponent'
 import { ButtonComponent } from '../Button/ButtonComponent'
 
-export const Chat = () => {
+export const Chat = ({user}) => {
   
   const { me, messages, sendMessage, setMessage, message } = useContext(SocketContext);
   
-    
   const handleChange = (e) => {
       setMessage(e.currentTarget.value);
-    }
+  }
     
   return (
     <div className="chat_main_container">
       <div className='chat_list_messages'>
         <h3>Chat</h3>
+        <div className='user_join'>
+          <span>{`${user || 'User'}  is joined`}</span> 
+        </div>
+       
       {messages.map((message, index) => {
         if (message.id === me) {
           return (
@@ -29,13 +32,9 @@ export const Chat = () => {
       })}
       </div>
       <form onSubmit={sendMessage}>
-        {/* <span>{users.map((user) => {
-         return  <span key={user}>{user.name}</span>
-        })}</span> */}
-
         <InputComponent placeholder="Type your message" className='messages_input' value={message}  onChange={handleChange} />
         <ButtonComponent type="submit" className="btn_message_send"> {'Send message'} </ButtonComponent>
       </form>
     </div>
-  );
+  )
 };
