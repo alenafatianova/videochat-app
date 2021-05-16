@@ -1,7 +1,9 @@
 .main_btn {
     width: 300px;
     min-height: 50px;
-    background: rgb(176, 201, 253);
+    background-color: rgb(52, 116, 253);
+    color: #fff;
+    font-weight: 600;
     text-transform: uppercase;
     margin: 20px;
     border: none;
@@ -29,7 +31,9 @@
     margin: 20px;
 }
 .call_to_user {
-    background: rgb(176, 201, 253);
+    background-color: rgb(52, 116, 253);
+    color: #fff;
+    font-weight: 600;
     text-transform: uppercase;
     width: 300px;
     min-height: 50px;
