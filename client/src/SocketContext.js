@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect, createContext} from 'react'
+import React, {useRef, useState, useEffect, createContext, useCallback} from 'react'
 import { io } from 'socket.io-client'
 import Peer from 'simple-peer'
 
@@ -20,7 +20,6 @@ const ContextProvider = ({children}) => {
     const myVideo = useRef();
     const userVideo = useRef();
     const connectionRef = useRef();
-    
     
     useEffect(() => {
         navigator.mediaDevices.getUserMedia({video: true, audio: true})
@@ -46,17 +45,17 @@ const ContextProvider = ({children}) => {
 
     }, [])
 
-
+    
     const getMessages = (message) => {
         setMessages((messages) => [...messages, message]);
     }
     
-    const sendMessage = (e) => {
+    const sendMessage = useCallback((e) => {
         e.preventDefault();
         const messageData = { body: message, id: me };
         setMessage("");
         socket.emit("sendChatMessage", messageData);
-    }
+    }, [me, message])
 
     const answerCall = () => {
         setIsModalActive(false)
@@ -109,7 +108,7 @@ const ContextProvider = ({children}) => {
     return (
         <SocketContext.Provider value={{
             call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream, message, messages, isModalActive, 
-            leaveCall, callToUser, answerCall, setName, setMessage, setMessages, sendMessage, setIsModalActive,
+            leaveCall, callToUser, answerCall, setName, setMessage, setMessages, sendMessage, setIsModalActive
             }}>
                 {children}
         </SocketContext.Provider>

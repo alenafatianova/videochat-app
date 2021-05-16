@@ -13,7 +13,10 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
+const roomData = new Map()
+
 app.get('/',  (req, res) => {
+    res.json(room)
     res.send('Server is running')
 })
 
@@ -22,7 +25,6 @@ io.on('connection', (socket) => {
     socket.emit('me', socket.id);
 
     socket.on('disconnect', () => {
-        console.log('user left')
         socket.broadcast.emit("callEnded")
     });
 
@@ -39,4 +41,9 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(PORT, () => console.log(`Server is listening on port ${PORT}`))
+server.listen(PORT, (error) => {
+    if(error) {
+        throw Error(error)
+    }
+    console.log(`Server is listening on port ${PORT}`) 
+})

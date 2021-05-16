@@ -1,12 +1,10 @@
 import React, {useContext} from 'react'
 import {SocketContext} from '../../SocketContext'
-import { Options } from '../Options/Options'
-import { Chat } from '../Chat/Chat'
 import './Room.css'
 
 export const Room = ({user}) => {
 
-    const {name, isCallAccepted, isCallEnded, stream, myVideo, userVideo, call} = useContext(SocketContext)
+    const {isCallAccepted, isCallEnded, stream, myVideo, userVideo, call} = useContext(SocketContext)
     
     return (
         <>
@@ -30,8 +28,6 @@ export const Room = ({user}) => {
                     </div>
                 </div>
             )}
-           {/* <div> <Options/> </div>
-           <div> <Chat/> </div> */}
         </div>
         </>
     )
