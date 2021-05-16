@@ -1,11 +1,6 @@
 .chat_video_block {
-  display: flex;
-  justify-content: space-evenly;
-  
+ display: flex;
+ justify-content: space-evenly;
+ margin-top: 3%;
 }
 
-.app_h2 {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}

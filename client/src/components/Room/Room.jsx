@@ -1,8 +1,10 @@
 import React, {useContext} from 'react'
 import {SocketContext} from '../../SocketContext'
-import './VideoPlayer.css'
+import { Options } from '../Options/Options'
+import { Chat } from '../Chat/Chat'
+import './Room.css'
 
-export const VideoPlayer = () => {
+export const Room = () => {
 
     const {name, isCallAccepted, isCallEnded, stream, myVideo, userVideo, call} = useContext(SocketContext)
     
@@ -28,6 +30,8 @@ export const VideoPlayer = () => {
                     </div>
                 </div>
             )}
+           {/* <div> <Options/> </div>
+           <div> <Chat/> </div> */}
         </div>
         </>
     )

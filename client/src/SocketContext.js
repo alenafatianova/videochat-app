@@ -4,7 +4,7 @@ import Peer from 'simple-peer'
 
 const SocketContext = createContext();
 
-const socket = io('http://localhost:5000')
+const socket = io.connect('http://localhost:5000/')
 
 const ContextProvider = ({children}) => {
     const [me, setMe] = useState('');
@@ -23,7 +23,6 @@ const ContextProvider = ({children}) => {
     
     
     useEffect(() => {
-        
         navigator.mediaDevices.getUserMedia({video: true, audio: true})
         .then((currentStream) => {
             setStream(currentStream)
@@ -39,12 +38,18 @@ const ContextProvider = ({children}) => {
 
         socket.on("id", (id) => {
             setMe(id);
-      })
+        })
+
         socket.on("message", (message) => {
             getMessages(message);
-      })
+        })
+
+        socket.on('userJoinedChat', (userName) => {
+            console.log('user connected' + userName)
+        })
 
     }, [])
+
 
     const getMessages = (message) => {
         setMessages((messages) => [...messages, message]);
@@ -74,9 +79,7 @@ const ContextProvider = ({children}) => {
 
         peer.signal(call.signal);
 
-        connectionRef.current = peer;
-
-      
+        connectionRef.current = peer;  
     };
 
 
@@ -96,7 +99,6 @@ const ContextProvider = ({children}) => {
         socket.on('isCallAccepted', (signal) => {
             setIsCallAccepted(true)
            
-
             peer.signal(signal)
         });
 
@@ -106,13 +108,12 @@ const ContextProvider = ({children}) => {
     const leaveCall = () => {
         setIsCallEnded(true);
         connectionRef.current.destroy();
-        window.location.reload();
     }
   
     return (
         <SocketContext.Provider value={{
-            call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream, message, messages, isModalActive,
-            leaveCall, callToUser, answerCall, setName, setMessage, setMessages, sendMessage, setIsModalActive
+            call, isCallAccepted, isCallEnded, name, me, myVideo, userVideo, stream, message, messages, isModalActive, 
+            leaveCall, callToUser, answerCall, setName, setMessage, setMessages, sendMessage, setIsModalActive,
             }}>
                 {children}
         </SocketContext.Provider>

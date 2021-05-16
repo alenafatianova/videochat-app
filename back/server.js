@@ -33,11 +33,13 @@ io.on('connection', (socket) => {
         io.to(data.to).emit("isCallAccepted", data.signal)
     });
     
-  socket.on('sendChatMessage', (data) => {
-      io.emit('message', data)
-  })
+    socket.on('sendChatMessage', (data) => {
+        io.emit('message', data)
+    })
+    
+    socket.on('userJoined', (userName) => {
+      io.emit('joinedName', userName)
+    })
 })
-
-
 
 server.listen(PORT, () => console.log(`Server is listening on port ${PORT}`))
